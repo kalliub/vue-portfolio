@@ -1,22 +1,35 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
 import { useRoute } from 'vue-router'
+import Icon from './Icon.vue'
 
 const route = useRoute()
 </script>
 
 <template>
   <div class="container">
-    <RouterLink v-if="route.path !== '/'" to="/">
-      <Button>About me</Button>
+    <RouterLink to="/" v-if="route.path !== '/'">
+      <Button>
+        <Icon name="info-circle" style="margin-right: 8px" />
+        About me
+      </Button>
     </RouterLink>
 
-    <RouterLink v-if="route.path !== 'work'" to="/">
-      <Button>About me</Button>
+    <RouterLink to="/work" v-if="route.path !== '/work'">
+      <Button>
+        <Icon name="bag-alt" style="margin-right: 8px" />
+        Work
+      </Button>
     </RouterLink>
 
-    <RouterLink v-if="route.path !== '/projects' && route.path.includes('/project/')" to="/">
-      <Button label="About me" />
+    <RouterLink
+      to="/projects"
+      v-if="route.path !== '/projects' && !route.path.includes('/project/')"
+    >
+      <Button>
+        <Icon name="coffee" style="margin-right: 8px" />
+        Projects
+      </Button>
     </RouterLink>
   </div>
 </template>
