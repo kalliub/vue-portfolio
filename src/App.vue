@@ -14,7 +14,9 @@ import PageTitleBar from './components/PageTitleBar.vue'
       <div class="content-container">
         <PageTitleBar />
 
-        <RouterView />
+        <div class="content">
+          <RouterView />
+        </div>
         <NavigationsButtons />
       </div>
     </MainCard>
@@ -49,5 +51,11 @@ import PageTitleBar from './components/PageTitleBar.vue'
   background-color: white;
   border-radius: 0 8px 8px 0;
   overflow: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 </style>
