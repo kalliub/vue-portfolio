@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/md-light-indigo/theme.css'
-import 'primeicons/primeicons.css'
 import './styles/global.css'
 import './styles/typography.css'
 
