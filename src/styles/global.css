@@ -12,7 +12,7 @@
 
   /* PrimeVue color config */
   --primary-color: var(--primary-500);
-  --text-color: var(--grey-900)
+  --text-color: var(--grey-900);
   --font-family: 'Inter', sans-serif;
 }
 

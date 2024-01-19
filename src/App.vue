@@ -4,6 +4,28 @@ import MainCard from '@/components/MainCard.vue'
 import photo from '@/assets/photo.png'
 import NavigationsButtons from './components/NavigationsButtons.vue'
 import PageTitleBar from './components/PageTitleBar.vue'
+import type { GithubRepo } from './types/github'
+import { provide, readonly, ref, watchEffect } from 'vue'
+
+const API_URL = 'https://api.github.com/users/kalliub/repos?sort=created&direction=desc'
+const loading = ref(false)
+const repos = ref<GithubRepo[]>([])
+provide('repos', readonly(repos))
+
+const filterRepos = (reposList: GithubRepo[]) => {
+  const reposToBeFiltered = ['kalliub']
+  return reposList.filter((iRepo) => !reposToBeFiltered.includes(iRepo.name))
+}
+
+watchEffect(() => {
+  loading.value = true
+  fetch(API_URL)
+    .then((res) => res.json())
+    .then((res) => {
+      repos.value = filterRepos(res)
+      loading.value = false
+    })
+})
 </script>
 
 <template>
@@ -50,12 +72,12 @@ import PageTitleBar from './components/PageTitleBar.vue'
   padding: 32px 48px 0px 48px;
   background-color: white;
   border-radius: 0 8px 8px 0;
-  overflow: auto;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: auto;
 }
 </style>
