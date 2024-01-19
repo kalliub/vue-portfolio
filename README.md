@@ -1,5 +1,7 @@
 # vue-portfolio
 
+[Preview](https://kalliu-vue-portfolio.netlify.app/)
+
 This is a remake version of [my original portfolio page](https://kalliu.com) using Vue.js, on the same week I started learning the framework.
 
 It is still a work in progress. The goal is to achieve a perfect copy, including reponsiveness.
