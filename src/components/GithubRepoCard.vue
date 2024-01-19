@@ -13,7 +13,7 @@ const formatRepoName = (repoName: string) => repoName.replace(/-/g, ' ')
 <template>
   <div class="card">
     <div style="display: flex">
-      <div style="display: flex; flex: 1 0 0; flex-direction: column">
+      <div class="title-subtitle-container">
         <RouterLink :to="`/project/${name}`">
           <h6 class="subtitle1" style="margin: 0">
             {{ formatRepoName(name) }}
@@ -25,17 +25,23 @@ const formatRepoName = (repoName: string) => repoName.replace(/-/g, ' ')
         </span>
       </div>
 
-      <div style="display: flex; flex: 1 0 0; flex-wrap: wrap; gap: 4px; justify-content: flex-end">
+      <div class="topics-container">
         <GithubTopic v-for="topic in topics" v-bind:key="topic" :label="topic" />
       </div>
     </div>
 
-    <div style="display: flex; gap: 4px">
-      <a :href="html_url || '#'" class="link" target="_blank">
+    <div class="github-preview-container">
+      <a :href="html_url || '#'" class="link" target="_blank" v-tooltip.top="'View on GitHub'">
         <Icon name="github-alt" size="medium" />
       </a>
 
-      <a v-if="homepage" :href="homepage" target="_blank" class="link">
+      <a
+        v-if="homepage"
+        :href="homepage"
+        target="_blank"
+        class="link"
+        v-tooltip.top="'Open live preview on a new tab'"
+      >
         <Icon name="external-link-alt" size="medium" />
       </a>
     </div>
@@ -50,6 +56,24 @@ const formatRepoName = (repoName: string) => repoName.replace(/-/g, ' ')
   border-radius: 8px;
   padding: 16px;
   gap: 12px;
+}
+.title-subtitle-container {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
+
+.topics-container {
+  display: flex;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.github-preview-container {
+  display: flex;
+  gap: 4px;
 }
 
 .link {
