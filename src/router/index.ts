@@ -23,6 +23,11 @@ const router = createRouter({
       path: '/project/:projectName',
       name: 'Project',
       component: () => import('@/views/ProjectPageView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      component: () => import('@/views/404.vue')
     }
   ]
 })

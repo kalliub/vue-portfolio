@@ -1,5 +1,10 @@
 .p-button {
   background-color: var(--primary-color);
+  color: white;
+}
+
+.p-button * {
+  color: white;
 }
 
 .p-button:hover {

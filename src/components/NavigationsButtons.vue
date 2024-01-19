@@ -2,12 +2,15 @@
 import Button from 'primevue/button'
 import { useRoute } from 'vue-router'
 import Icon from './Icon.vue'
+import { computed } from 'vue'
 
 const route = useRoute()
+
+const hideButtons = computed(() => route.name === '404')
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-if="!hideButtons">
     <RouterLink to="/" v-if="route.path !== '/'">
       <Button>
         <Icon name="info-circle" style="margin-right: 8px" />

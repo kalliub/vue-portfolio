@@ -78,6 +78,7 @@ const { name, created_at, language, topics, homepage, html_url } = defineProps<G
 .link {
   margin-right: 8px;
   transition: 200ms;
+  color: var(--primary-500);
 }
 .link:hover {
   transform: scale(1.2);

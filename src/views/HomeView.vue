@@ -12,7 +12,7 @@ const getAge = () => Math.floor(DateTime.now().diff(DateTime.fromISO('1996-04-04
 
   <h2 class="subtitle">{{ getAge() }} years old | Brazilian | Senior Software Engineer</h2>
 
-  <div class="text-container">
+  <div class="text-container body">
     <span>
       🥁 First of all, I am a passionate
       <b>musician</b>, pet lover (cat dad), Geovanna&apos;s life partner and always a positive
