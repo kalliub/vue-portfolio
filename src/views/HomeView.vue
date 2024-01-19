@@ -48,14 +48,12 @@ const getAge = () => Math.floor(DateTime.now().diff(DateTime.fromISO('1996-04-04
   margin: 8px 0px;
   padding: 0;
   line-height: normal;
-  color: rgb(55, 55, 55);
 }
 
 .subtitle {
   margin: 0px 0px 8px;
   line-height: 36px;
-  /* TODO: Implement color variable: primary.500 */
-  color: rgb(96, 109, 188);
+  color: var(--primary-500);
 }
 
 .text-container {

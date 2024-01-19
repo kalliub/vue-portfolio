@@ -5,6 +5,7 @@ import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/md-light-indigo/theme.css'
 import './styles/global.css'
 import './styles/typography.css'
+import './styles/prime-button.css'
 
 const app = createApp(App)
 

@@ -1,0 +1,7 @@
+.p-button {
+  background-color: var(--primary-color);
+}
+
+.p-button:hover {
+  background-color: var(--primary-900);
+}

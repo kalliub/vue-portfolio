@@ -1,6 +1,24 @@
+:root {
+  --primary-900: #465298;
+  --primary-700: #465298;
+  --primary-500: #606dbc;
+
+  --grey-900: #373737;
+  --grey-500:#8f8f8f;
+  --grey-200: #c7c7c7;
+  --grey-100: #e8e8e8;
+
+  --secondary-font-family: 'Roboto Slab', sans-serif;
+
+  /* PrimeVue color config */
+  --primary-color: var(--primary-500);
+  --text-color: var(--grey-900)
+  --font-family: 'Inter', sans-serif;
+}
+
 * {
   letter-spacing: 0px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family);
 }
 
 @keyframes move-it {
@@ -21,7 +39,7 @@ body {
   #465298 10%
 );
   background-size: 100px 100px;
-  animation: move-it 8s linear infinite;
+  animation: move-it 15s linear infinite;
   margin: 0px;
 }
 

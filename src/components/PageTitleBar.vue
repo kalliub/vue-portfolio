@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import Icon from './Icon.vue'
 
 const route = useRoute()
+const isProjectPage = () => /^\/project\/.+$/g.test(route.fullPath)
 </script>
 
 <template>
   <div class="content-title">
-    <RouterLink v-if="route.path !== '/'" to="/projects">
+    <RouterLink v-if="isProjectPage()" to="/projects">
+      <Icon name="angle-left" class="link-text" style="margin-right: 8px" />
       <span class="link-text">
         {{ route.name }}
       </span>
@@ -26,8 +29,7 @@ const route = useRoute()
   padding: 4px 0px;
   gap: 4px;
   width: 100%;
-  /* TODO: implement palette colors with variables */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--grey-200);
   position: sticky;
   top: 0;
   background-color: white;
@@ -35,9 +37,7 @@ const route = useRoute()
 }
 
 .link-text {
-  /* TODO: Implement palette colors with variables */
-  /* grey.500 */
-  color: 'rgb(61,61,61)';
+  color: var(--grey-500);
   line-height: 36px;
 }
 
@@ -47,8 +47,6 @@ const route = useRoute()
 
 .back-button:hover {
   transition: 200ms;
-  /* TODO: implement palette colors with variables */
-  /* primary.700 */
-  color: '#465298';
+  color: var(--primary-700);
 }
 </style>
