@@ -4,10 +4,9 @@ import { DateTime } from 'luxon'
 import { defineProps } from 'vue'
 import Icon from './Icon.vue'
 import GithubTopic from './GithubTopic.vue'
+import { formatRepoName } from '@/utils/github'
 
 const { name, created_at, language, topics, homepage, html_url } = defineProps<GithubRepo>()
-
-const formatRepoName = (repoName: string) => repoName.replace(/-/g, ' ')
 </script>
 
 <template>
