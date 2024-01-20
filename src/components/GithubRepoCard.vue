@@ -6,18 +6,26 @@ import Icon from './Icon.vue'
 import GithubTopic from './GithubTopic.vue'
 import { formatRepoName } from '@/utils/github'
 
-const { name, created_at, language, topics, homepage, html_url } = defineProps<GithubRepo>()
+const { name, description, created_at, language, topics, homepage, html_url } =
+  defineProps<GithubRepo>()
+
+const isRepoThisProject = name === 'vue-portfolio'
 </script>
 
 <template>
   <div class="card">
     <div style="display: flex">
       <div class="title-subtitle-container">
-        <RouterLink :to="`/project/${name}`">
+        <a
+          :href="html_url"
+          target="_blank"
+          style="width: fit-content"
+          v-tooltip.top="'View on GitHub'"
+        >
           <h6 class="subtitle1" style="margin: 0">
             {{ formatRepoName(name) }}
           </h6>
-        </RouterLink>
+        </a>
 
         <span class="caption">
           {{ DateTime.fromISO(created_at).year }} {{ language ? `| ${language}` : '' }}
@@ -29,18 +37,13 @@ const { name, created_at, language, topics, homepage, html_url } = defineProps<G
       </div>
     </div>
 
-    <div class="github-preview-container">
-      <a :href="html_url || '#'" class="link" target="_blank" v-tooltip.top="'View on GitHub'">
-        <Icon name="github-alt" size="medium" />
-      </a>
+    <span class="body">
+      <div v-if="isRepoThisProject" class="this-project-tag">This Project</div>
+      {{ description }}
+    </span>
 
-      <a
-        v-if="homepage"
-        :href="homepage"
-        target="_blank"
-        class="link"
-        v-tooltip.top="'Open live preview on a new tab'"
-      >
+    <div v-if="!isRepoThisProject && homepage" class="github-preview-container">
+      <a :href="homepage" target="_blank" class="link" v-tooltip.top="'Open live demo'">
         <Icon name="external-link-alt" size="medium" />
       </a>
     </div>
@@ -68,6 +71,17 @@ const { name, created_at, language, topics, homepage, html_url } = defineProps<G
   flex-wrap: wrap;
   gap: 4px;
   justify-content: flex-end;
+}
+
+.this-project-tag {
+  background-color: var(--primary-100);
+  color: var(--primary-900);
+  font-weight: 900;
+  padding: 0px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  width: fit-content;
 }
 
 .github-preview-container {
