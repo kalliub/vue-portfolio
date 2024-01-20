@@ -56,9 +56,13 @@ const filteredButtonsByPathConditions = computed(() => {
   padding: 16px 0px;
   background-color: white;
   gap: 16px;
-  /* TODO: Implement breakpoints */
 }
-.link {
-  /* TODO: Implement breakpoints */
+
+@media screen and (max-width: 768px) {
+  a,
+  button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>

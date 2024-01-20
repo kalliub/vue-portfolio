@@ -8,7 +8,7 @@ const jobsIcons = {
   front: 'react',
   back: 'server',
   cloud: 'cloud',
-  auth: 'locak-alt',
+  auth: 'lock-alt',
   lecture: 'comments',
   mentorship: 'books'
 }

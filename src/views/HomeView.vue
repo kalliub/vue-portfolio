@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import { DateTime } from 'luxon'
-
-const getAge = () => Math.floor(DateTime.now().diff(DateTime.fromISO('1996-04-04'), 'years').years)
+import WelcomeTitleSubtitle from '@/components/WelcomeTitleSubtitle.vue'
+import avatarPhoto from '@/assets/photo_avatar.png'
 </script>
 
 <template>
-  <h1 class="title">
-    Hi, my name is <br />
-    Kalliu Brasil
-  </h1>
-
-  <h2 class="subtitle">{{ getAge() }} years old | Brazilian | Senior Software Engineer</h2>
-
+  <img id="avatar-photo" :src="avatarPhoto" alt="" />
+  <WelcomeTitleSubtitle id="desktop-tablet-welcome-title-subtitle" />
   <div class="text-container body">
     <span>
       🥁 First of all, I am a passionate
@@ -44,18 +38,6 @@ const getAge = () => Math.floor(DateTime.now().diff(DateTime.fromISO('1996-04-04
 </template>
 
 <style scoped>
-.title {
-  margin: 8px 0px;
-  padding: 0;
-  line-height: normal;
-}
-
-.subtitle {
-  margin: 0px 0px 8px;
-  line-height: 36px;
-  color: var(--primary-500);
-}
-
 .text-container {
   display: flex;
   flex-direction: column;
@@ -63,10 +45,25 @@ const getAge = () => Math.floor(DateTime.now().diff(DateTime.fromISO('1996-04-04
   gap: 8px;
 }
 
+#avatar-photo {
+  width: 70vw;
+  max-width: 300px;
+  align-self: center;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
 #ball-divider {
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.15);
+}
+@media screen and (max-width: 768px) {
+  .text-container {
+    margin-top: 16px;
+  }
 }
 </style>

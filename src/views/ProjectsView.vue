@@ -18,6 +18,5 @@ const githubRepos = inject<GithubRepo[]>('repos')
   flex-direction: column;
   gap: 16px;
   width: 100%;
-  padding-top: 16px;
 }
 </style>
