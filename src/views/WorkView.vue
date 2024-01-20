@@ -15,7 +15,7 @@ const jobsIcons = {
 </script>
 
 <template>
-  <Accordion :active-index="0">
+  <Accordion :active-index="0" id="accordion-box">
     <AccordionTab
       v-for="{ icon, description, company, technologies, workingPeriod } in jobs"
       v-bind:key="company"
@@ -63,6 +63,12 @@ img {
   width: 24px;
   height: 24px;
   object-fit: contain;
+}
+
+#accordion-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .accordion-header {
