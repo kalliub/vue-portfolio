@@ -1,0 +1,21 @@
+.p-accordion .p-accordion-tab {
+  margin: 8px 0px;
+  border: 1px solid var(--grey-100);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.p-accordion .p-accordion-header-link {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.p-accordion .p-accordion-tab .p-accordion-toggle-icon {
+  color: var(--grey-900);
+}
+
+.p-accordion .p-accordion-content {
+  padding: 12px;
+  padding-top: 0;
+  border-radius: 8px;
+}

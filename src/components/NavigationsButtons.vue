@@ -7,31 +7,41 @@ import { computed } from 'vue'
 const route = useRoute()
 
 const hideButtons = computed(() => route.name === '404')
+
+const buttons = {
+  '/': {
+    name: 'About me',
+    icon: 'info-circle',
+    condition: (currentPath: string) => currentPath !== '/'
+  },
+  '/work': {
+    name: 'Experience',
+    icon: 'bag-alt',
+    condition: (currentPath: string) => currentPath !== '/work'
+  },
+  '/projects': {
+    name: 'Projects',
+    icon: 'coffee',
+    condition: (currentPath: string) =>
+      currentPath !== '/projects' && !currentPath.includes('/project/')
+  }
+}
+
+const filteredButtonsByPathConditions = computed(() => {
+  return Object.entries(buttons).filter(([_path, { condition }]) => condition(route.path))
+})
 </script>
 
 <template>
   <div class="container" v-if="!hideButtons">
-    <RouterLink to="/" v-if="route.path !== '/'">
-      <Button>
-        <Icon name="info-circle" style="margin-right: 8px" />
-        About me
-      </Button>
-    </RouterLink>
-
-    <RouterLink to="/work" v-if="route.path !== '/work'">
-      <Button>
-        <Icon name="bag-alt" style="margin-right: 8px" />
-        Work
-      </Button>
-    </RouterLink>
-
     <RouterLink
-      to="/projects"
-      v-if="route.path !== '/projects' && !route.path.includes('/project/')"
+      v-for="[path, { name, icon }] of filteredButtonsByPathConditions"
+      :key="path"
+      :to="path"
     >
       <Button>
-        <Icon name="coffee" style="margin-right: 8px" />
-        Projects
+        <Icon :name="icon" style="margin-right: 8px" />
+        {{ name }}
       </Button>
     </RouterLink>
   </div>

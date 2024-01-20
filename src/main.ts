@@ -9,6 +9,7 @@ import Tooltip from 'primevue/tooltip'
 import './styles/global.css'
 import './styles/typography.css'
 import './styles/prime-button.css'
+import './styles/prime-accordion.css'
 
 const app = createApp(App)
 

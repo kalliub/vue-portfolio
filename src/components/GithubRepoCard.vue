@@ -37,8 +37,9 @@ const isRepoThisProject = name === 'vue-portfolio'
       </div>
     </div>
 
+    <div v-if="isRepoThisProject" class="this-project-tag">This Project</div>
+
     <span class="body">
-      <div v-if="isRepoThisProject" class="this-project-tag">This Project</div>
       {{ description }}
     </span>
 
@@ -77,10 +78,9 @@ const isRepoThisProject = name === 'vue-portfolio'
   background-color: var(--primary-100);
   color: var(--primary-900);
   font-weight: 900;
-  padding: 0px 8px;
+  padding: 4px 8px;
   border-radius: 4px;
   font-size: 12px;
-  margin-bottom: 8px;
   width: fit-content;
 }
 

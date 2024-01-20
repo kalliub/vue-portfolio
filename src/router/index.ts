@@ -11,7 +11,7 @@ const router = createRouter({
     },
     {
       path: '/work',
-      name: 'Work',
+      name: 'Experience',
       component: () => import('@/views/WorkView.vue')
     },
     {
