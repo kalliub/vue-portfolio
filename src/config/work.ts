@@ -2,13 +2,23 @@ import EndeavorIcon from '@/assets/jobs/Endeavor.png';
 import ProbonoIcon from '@/assets/jobs/Probono.png';
 import TorqiIcon from '@/assets/jobs/Torqi.png';
 import ZRPIcon from '@/assets/jobs/ZRP.png';
+import MillenniumIcon from '@/assets/jobs/Millennium.png';
 import type { Job } from '@/types/job';
 
 export default [
   {
+    icon: MillenniumIcon,
+    company: "Millennium BCP (Neotalent Conclusion)",
+    workingPeriod: "2024 - Present",
+    description: "Millennium BCP and ActivoBank (their digital subsidiary) is probably the largest private bank in Portugal, focused on innovative and accessible banking solutions.\nDeveloped and maintained internal JavaScript libraries used across their applications, inspired by popular open-source libraries and tools available in the market.\nMaintained applications with monorepo and micro front-end architectures, managing and resolving library implementation issues.\nLed the development and deployment of an internal automation tool capable of generating fully structured back-office applications from descriptor files.",
+    technologies: {
+      front: 'React, TypeScript, Nx, Micro-Frontend ',
+    },
+  },
+  {
     icon: EndeavorIcon,
     company: 'Endeavor (through ZRP)',
-    workingPeriod: '2022 - Present',
+    workingPeriod: '2022 - 2024',
     description:
       'Endeavor is a global nonprofit organization that supports high-impact entrepreneurs through mentorship, capital, and networking to foster innovation and economic growth.\nI led the frontend development of an internal-use, responsive platform with the goal of integrating and optimizing their working process and tools into a single user-friendly platform. Later, we analyzed user-behavior data and made user interviews to validate many product discover hypotheses.',
     technologies: {
